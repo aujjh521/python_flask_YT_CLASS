@@ -1,0 +1,3 @@
+<h3>Welcom {{name}} to Flask</h3>
+This is from render template
+JSON conten is {{json_content}}
