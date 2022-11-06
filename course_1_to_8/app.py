@@ -95,7 +95,7 @@ def getSum():
 
 
 #啟動伺服器, 可透過參數port修改port的設定,預設是5000
-app.run(port=3000) 
+app.run(host="192.168.2.182", port=3000) 
 
 
     
