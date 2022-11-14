@@ -55,6 +55,31 @@ collection = db.users #選擇操作 users 集合 (在database裡面創建一個�
 
 
 #取得集合中的所有文件
-cursor = collection.find()
-for doc in cursor:
-    print(doc)
+# cursor = collection.find()
+# for doc in cursor:
+#     print(doc)
+
+
+#更新集合中的一筆資料
+# result = collection.update_one({
+#     "name":"丁滿"
+# },{
+#     "$set":{
+#         "password":"tintintin"
+#     }
+# })
+
+# print('符合條件的文件數量', result.matched_count)
+# print('實際更新的文件數量', result.modified_count)
+
+#更新集合中的多筆資料
+result = collection.update_many({
+    "level":2
+},{
+    "$set":{
+        "description":"this is level 2 special description"
+    }
+})
+
+print('符合條件的文件數量', result.matched_count)
+print('實際更新的文件數量', result.modified_count)
