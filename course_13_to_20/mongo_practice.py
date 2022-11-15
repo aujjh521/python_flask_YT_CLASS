@@ -73,13 +73,48 @@ collection = db.users #選擇操作 users 集合 (在database裡面創建一個�
 # print('實際更新的文件數量', result.modified_count)
 
 #更新集合中的多筆資料
-result = collection.update_many({
+# result = collection.update_many({
+#     "level":2
+# },{
+#     "$set":{
+#         "description":"this is level 2 special description"
+#     }
+# })
+
+# print('符合條件的文件數量', result.matched_count)
+# print('實際更新的文件數量', result.modified_count)
+
+
+#篩選一筆資料
+doc = collection.find_one({
     "level":2
-},{
-    "$set":{
-        "description":"this is level 2 special description"
-    }
 })
 
-print('符合條件的文件數量', result.matched_count)
-print('實際更新的文件數量', result.modified_count)
+print(f"符合篩選條件的資料是", doc)
+
+#篩選多筆資料
+cursor = collection.find({
+    "level":2
+})
+
+print(f"符合篩選條件的資料是", [doc for doc in cursor])
+
+#用複合條件篩選
+doc = collection.find_one({
+    "$and":[
+        {"level":2},
+        {"email":"pp@pp.com"}
+    ]
+})
+print(f"符合複合篩選條件的資料是", doc)
+
+#篩選果排序
+cursor = collection.find({
+    "$or":[
+        {"level" : 2},
+        {"name" : "wcleeza"}
+    ]
+}, sort=[
+    ("level", pymongo.DESCENDING)
+])
+print(f"符合複合篩選條件並且排序之後的資料是", [doc for doc in cursor])
