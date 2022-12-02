@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貓狗分類</title>
+</head>
+<body>
+    <div>你好, {{member_nickname}}, 很高興見到你</div>
+    <h3>歡迎來到貓狗預測</h3>
+    <hr/>
+    <form action="/DogCatClassification_predict" method="POST">
+        請輸入想要預測的圖片網址 <input type="text" name="imgurl" />
+        <button>點擊後產生預測結果</button>
+    </form>
+    <hr/>
+    <br/>
+    <img src="/cover.jpg"/>
+    <br/>
+    <a href="/member">回到功能選擇</a>
+
+</body>
+</html>
