@@ -1,2 +1,3 @@
 # python_flask_YT_CLASS
 flask class on youtube class
+要注意執行每個資料夾的時候,用vscode要以該資料夾作為root,以避免檔案儲存路徑的問題

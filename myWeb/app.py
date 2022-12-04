@@ -122,10 +122,12 @@ def DogCatClassification_predict():
         #save image to local folder
         try:
             img_url = request.form["imgurl"]
-            local_path = "public/download/" + "local-filename.jpg"
+            print('get img from url success')
+            local_path = "./public/download/" + "local-filename.jpg"
             urllib.request.urlretrieve(img_url, local_path)
-            print(f'get image and save to local file')
-        except:
+            print(f'save image to local folder')
+        except Exception as e:
+            print(e)
             return redirect("/GetImgFail?msg=該圖片無法被下載,請更換其他圖片網址")
 
         #load ML model
